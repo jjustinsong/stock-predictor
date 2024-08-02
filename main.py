@@ -1,4 +1,4 @@
-from sentimentanalysis.sentimentanalysis import SentimentAnalysisBidirectionalLSTMTemperature
+from sentimentanalysis import SentimentAnalysisBidirectionalLSTMTemperature
 import torch
 import re
 import numpy as np
