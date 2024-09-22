@@ -1,4 +1,4 @@
-from sentimentanalysis import SentimentAnalysisBidirectionalLSTMTemperature
+from sentiment-analysis/sentimentanalysis import SentimentAnalysisBidirectionalLSTMTemperature
 import torch
 import re
 import numpy as np
@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 glove = vocab.GloVe(name='6B', dim=100)
 
-embedding_matrix = torch.load('glove_embeddings.pt')
+embedding_matrix = torch.load('sentiment-analysis/glove_embeddings.pt')
 
 sentiment_analyzer = SentimentAnalysisBidirectionalLSTMTemperature(
     embedding_dim=100,
@@ -26,7 +26,7 @@ sentiment_analyzer = SentimentAnalysisBidirectionalLSTMTemperature(
 )
 
 sentiment_analyzer.to(device)
-sentiment_analyzer.load_state_dict(torch.load('combined_model_weights.pth', map_location=device))
+sentiment_analyzer.load_state_dict(torch.load('sentiment-analysis/combined_model_weights.pth', map_location=device))
 sentiment_analyzer.eval()
 
 
